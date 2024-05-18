@@ -1,0 +1,28 @@
+{
+    "name": "express-ws",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.ts",
+    "scripts": {
+        "copy-html": "copyfiles -f ./*.html dist",
+        "copy-css": "copyfiles -f ./**/*.css dist/public/css",
+        "build": "tsc -p . && npm run copy-html && npm run copy-css",
+        "start": "npm run ts && npm run start:server",
+        "start:server": "npm run build && node dist/index.js",
+        "dev": "tsc-watch -p tsconfig.json --onSuccess \"npm run start:server\""
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "dotenv": "^16.4.5",
+        "express": "^4.19.2",
+        "ws": "^8.17.0"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.21",
+        "@types/ws": "^8.5.10",
+        "copyfiles": "^2.4.1",
+        "tsc-watch": "^6.2.0",
+        "typescript": "^4.6.3"
+    }
+}
